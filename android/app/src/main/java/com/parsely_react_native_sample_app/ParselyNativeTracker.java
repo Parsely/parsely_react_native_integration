@@ -34,11 +34,18 @@ public class ParselyNativeTracker extends ReactContextBaseJavaModule {
       ParselyTracker.sharedInstance(siteId, activity);
     }
 
+//    @ReactMethod
+//    public void trackPageView(@NonNull String url, @Nullable String urlRef) {
+//        final Activity activity = getCurrentActivity();
+//        ParselyTracker.sharedInstance("elevatedtoday.com", activity).trackPageview(url, urlRef, null, null);
+//    }
+
     @ReactMethod
-    public void trackPageView(@NonNull String url, @Nullable String urlRef, @Nullable ReadableMap urlMetadata, @Nullable ReadableMap extraData) {
+    public void trackPageView(@NonNull String url) {
         final Activity activity = getCurrentActivity();
-        ParselyTracker.sharedInstance("elevatedtoday.com", activity).trackPageview(url, urlRef, urlMetadata, extraData);
+        ParselyTracker.sharedInstance("elevatedtoday.com", activity).trackPageview(url, null, null, null);
     }
+
 
     @ReactMethod
     public void startEngagement(@NonNull String url) {
